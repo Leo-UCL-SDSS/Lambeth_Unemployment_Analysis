@@ -28,7 +28,7 @@ This project analyses unemployment disparities across Lambeth using geospatial d
 - `report.Rmd` — reproducible analysis report  
 - `report.html` — rendered output  
 - `report.pdf` — final report
-- 
+
 
 ## How to Run
 
