@@ -1,76 +1,64 @@
-# README for Spatial Analysis of Lambeth Project (Data Analysis Assessment II)
+# Lambeth Unemployment Analysis
 
-## Project Overview
+## Overview
 
-This repository contains the R-based spatial analysis and reporting for the Data Analysis Assessment II (POLS0010). It explores unemployment patterns and their relationship with educational deprivation across Lambeth’s LSOAs using 2021 Census and IMD 2019 data. Analyses include spatial clustering (Moran’s I & LISA) and Geographically Weighted Regression (GWR).
+This project analyses unemployment disparities across Lambeth using geospatial data and statistical methods. It explores how unemployment varies across neighbourhoods and its relationship with deprivation and education-related indicators.
 
----
 
-## Files Included
+## Key Findings
 
-1. **Data analysis assessment II.Rmd**  
-   **Description:** Quarto (R Markdown) source file with narrative, code chunks, and embedded figures for the full analysis and report.
+- Unemployment is spatially concentrated in specific neighbourhood clusters  
+- Higher deprivation areas tend to exhibit higher unemployment rates  
+- Spatial analysis reveals inequality that is not visible in borough-level averages  
 
-2. **Data prep.R**  
-   **Description:** R script containing data loading, cleaning, and preprocessing steps (census import, shapefile merging, OA→LSOA aggregation).
 
-3. **data analysis assessment 2.R**  
-   **Description:** R script with additional analyses (Moran’s I tests, neighbor definitions, quadrant classification, scatter plots).
+## Methods
 
-4. **Data-analysis-assessment-II.html**  
-   **Description:** Rendered HTML report generated from `Data analysis assessment II.Rmd`. Provides a web-viewable version of the full analysis.
+- Processed UK Census (2021) and IMD (2019) data  
+- Performed spatial joins and OA → LSOA aggregation  
+- Applied spatial statistics (Moran’s I, LISA)  
+- Conducted regression analysis (GWR) to explore spatial relationships  
+- Built reproducible workflows using R and R Markdown  
 
-5. **Spatial analysis report on Lambeth.pdf**  
-   **Description:** Final PDF export of the report. Suitable for offline reading or formal submission.
 
----
+## Project Files
 
-## How to Reproduce the Analysis
+- `data_cleaning.R` — data loading and preprocessing  
+- `analysis.R` — spatial analysis and modelling  
+- `report.Rmd` — reproducible analysis report  
+- `report.html` — rendered output  
+- `report.pdf` — final report
+- 
 
-1. **Pre-requisites:**  
-   - R (>= 4.0) and RStudio (optional)  
-   - Install required packages:  
-     ```r
-     install.packages(c(
-       "sf", "spdep", "spgwr", "tmap", "dplyr",
-       "ggplot2", "gridExtra", "leaflet", "tidyverse"
-     ))
-     ```
+## How to Run
 
-2. **Run Data Prep:**  
-   - Open `Data prep.R` in RStudio (or R console) and execute to produce the cleaned and merged spatial dataset.
+1. Install required packages:
 
-3. **Run Analysis Scripts:**  
-   - Execute `data analysis assessment 2.R` to compute Moran’s I, LISA clusters, GWR models, and generate plots.
-
-4. **Render the Report:**  
-   - Open `Data analysis assessment II.Rmd` and click **Knit** (or use `quarto render`) to generate the HTML and PDF outputs.  
-   ```bash
-   quarto render "Data analysis assessment II.Rmd"
-   ```
-
-5. **View Outputs:**  
-   - Open `Data-analysis-assessment-II.html` in your browser or read `Spatial analysis report on Lambeth.pdf` for the final documented results.
-
----
-
-## Project Structure
-
-```plaintext
-├── Data prep.R                    # Data loading & preprocessing
-├── data analysis assessment 2.R   # Spatial stats & modeling scripts
-├── Data analysis assessment II.Rmd # R Markdown source for report
-├── Data-analysis-assessment-II.html # HTML report output
-├── Spatial analysis report on Lambeth.pdf # Final PDF report
-└── README.md                      # This file
+```r
+install.packages(c(
+  "sf", "spdep", "spgwr", "tmap",
+  "dplyr", "ggplot2", "tidyverse"
+))
 ```
 
----
+2. Run data preparation:
+source("data_cleaning.R")
 
-## Contact
+3. Run analysis:
+source("analysis.R")
+
+4. Render report:
+quarto render report.Rmd
+
+5. Output
+See:
+
+* report.html for interactive version
+* report.pdf for final report
+
 
 For questions or feedback, please reach out:  
-**Name:Haofan Liao
-**Email:** stnzhl4@ucl.ac.uk
+**Name:Leo Liao
+**Email:** liaohaofan.gz@gmail.com
 **GitHub:** https://github.com/Leo-UCL-SDSS
 
